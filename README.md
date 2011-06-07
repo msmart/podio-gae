@@ -8,12 +8,19 @@ Installation
 ============
 - Clone the git repository
 - Create your app engine models (eg models.py and corresponding Podio apps (via the web)
-- Map your models to a reference name in main.py (see MODEL_FACTORY)
-- Enter your podio credentials and site configuration in main.py (get the urls right)
+- Map your models to a reference name in hook.py (see MODEL_FACTORY)
+- Enter your podio credentials and site configuration in hook.py (get the urls right)
+- Deploy your app to app engine and activate (make default)
 - Visit: /podiohook/ ie BASE_URL and add new syncs by mapping the reference name of models to app_ids of podio
 - Map the podio fields and you are done
 - Check with the Datastore viewer whether you can add content via podio
 
+Troubleshooting
+===============
+- Double check your credentials
+- Check in podio whether your hooks are set up and verified
+- View the app engine logs for errors
+- Check with the data store viewer whether entities are created
 
 Remarks
 =======
