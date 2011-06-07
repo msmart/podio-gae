@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="" method="GET">
+  <table>
+    <tr><td>Model:</td><td><select name="name">{% for opt in modelfactory %}<option>{{ opt }}</option>{% endfor %}</select></td></tr>
+    <tr><td> App ID:</td><td><input name="app_id" value="{{ sync.app_id }}" /></td></tr>
+ </table>
+ <button type="submit">Create sync</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="/{{ BASE_URL }}/update_mapping/{{ sync.name }}" method="POST">
+  <table>
+    <tr><td>Model:</td><td>{{ sync.name }}</td></tr>
+    <tr><td> App ID:</td><td>{{ sync.app_id }}</td></tr>
+        {% for field in model_fields %}
+        <tr><td>{{ field.name }}</td><td>
+            <select name="{{ field.name }}">
+              {% for opt in field.options %}
+              <option value="{{ opt.value }}" {% if opt.selected %}selected="selected"{% endif %}>{{ opt.label  }}</option>
+              {% endfor %}
+            </select></td><tr>
+        {% endfor %}
+ </table>
+ <button type="submit">update</button>
+ {% if sync %}
+ <a href=/{{ BASE_URL }}/create_sync/{{ sync.name }}?delete=true&name={{ sync.name }}>delete</a>
+ {% endif %}
+
+</form>
+
+{% endblock %}

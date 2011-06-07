@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB" lang="en-GB">
+<head>
+  <title>{{ page.title }}</title>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="robots" content="index, follow" />
+<link rel="shortcut icon" href="/static/img/fav.ico" />
+</head>
+<body>
+<div id="container">
+    <div id="navi_l">
+      <ul class="navi_l">
+      {% for item in menu %}
+      <li class="first"><a class="first {% ifequal page.slug item.slug %}active{% endifequal %} text blau bold" href="{{ item.slug }}">{{ item.title }}</a></li>
+      {% endfor %}
+      </ul>
+    </div>
+    <div id="headline" class="headline">{{ page.title }}</div>
+    <div id="text" class="text">
+      <p class="bold">{{ page.description|default:"" }}</p>
+    {{ page.content|default:"" }}
+    </div>
+  </div>
+  <div id="footer"> 
+    Footer
+  </div>
+</div>
+</body>
+</html>

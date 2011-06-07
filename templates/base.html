@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB" lang="en-GB">
+<head>
+  <title>PodioHook App Engine Sync</title>
+  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="robots" content="index, follow" />
+  </head>
+<body>
+  <ul>
+    <li><a href="/{{ BASE_URL }}/">Show all syncs</a> 
+    <li><a href="/{{ BASE_URL }}/create_sync/">Create a new sync</a> 
+  </ul>
+  {% if msg %}
+  <h1>{{ msg }}</h1>
+  {% endif %}
+  <div id="content" style="padding-left:123px;text-align:left">
+    {% block content %}
+    <table>
+    {% for sync in syncs %}
+    <tr><a href="/{{ BASE_URL }}/sync_mapping/{{ sync.name }}">{{ sync }}</a><br />
+    {% endfor %}
+    {% endblock %}
+    </table>
+  </div>
+  <div id="footer" style="margin-top: 123px">
+    <small>
+      {{ mapping }}<br />
+      {{ sync.map_options }}
+
+    </small>
+  </div>
+
+</body>
+</html>
